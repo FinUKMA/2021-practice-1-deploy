@@ -1,17 +1,15 @@
 create table users
 (
-    id       int primary key auto_increment,
-    login    varchar(30) not null,
+    id       serial primary key,
+    login    varchar(30) not null unique,
     password varchar(40) not null,
-    company varchar(40) not null,
-    unique uniq_login (login)
+    company varchar(40) not null
 );
 
 create table permissions
 (
-    id         int primary key auto_increment,
-    permission varchar(30) not null,
-    unique uniq_permission (permission)
+    id         serial primary key,
+    permission varchar(30) not null unique
 );
 
 create table user_to_permissions (
